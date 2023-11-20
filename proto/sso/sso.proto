@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "erkkipm.sso.v1beta1;ssov1beta1";
+
+service Auth {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc IsAdmin(IsAdminRequest) returns (IsAdminResponse);
+}
+
+message IsAdminRequest {
+  int64 user_id = 1; // Идентификатор юзера
+}
+
+message IsAdminResponse {
+  bool is_admin = 1; // Признак администратора
+}
+
+
+message LoginRequest {
+  string email = 1; // e-mail при входе
+  string password = 2; // Пароль при входе
+  int32 app_id = 3; // Идентификатор приложения для входа
+}
+
+message LoginResponse {
+  string token = 1; // Токен для входа в приложение
+}
+
+message RegisterRequest {
+  string email = 1; // e-mail при регистрации
+  string password = 2; // Пароль при регистрации
+}
+
+message RegisterResponse {
+  int64 user_id = 1;  // Идентификатор зарегистрированного юзера
+  bool success = 2; // Статус регистрации
+}
+
