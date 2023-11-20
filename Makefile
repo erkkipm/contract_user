@@ -1,7 +1,6 @@
 APP_BIN =  gen/go/sso/
 APP_PROTO = proto/sso/
 
-
 .PHONY: gen
 gen:
 	rm -f $(APP_BIN)*
