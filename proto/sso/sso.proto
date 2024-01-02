@@ -2,7 +2,8 @@ syntax = "proto3";
 
 package auth;
 
-option go_package = "erkkipm.sso.v1beta1;ssov1beta1";
+// используется при генерации файлов на GO
+option go_package = "erkkipm.sso.v1beta1;ssov1";
 
 service Auth {
   rpc Register(RegisterRequest) returns (RegisterResponse);
